@@ -1,0 +1,18 @@
+/* src/styles/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* خطوط إضافية أو تخصيص */
+body {
+  font-family: 'Cairo', 'Inter', sans-serif;
+}
+
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: none;}
+}
+.animate-fade-in {
+  animation: fade-in 0.5s;
+}
