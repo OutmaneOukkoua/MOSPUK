@@ -85,6 +85,9 @@
   "contact_branch_maps_link": "https://www.google.com/maps?q=53FG%2B7VR+Nador",
   "contact_branch_maps_iframe": "https://www.google.com/maps?q=53FG%2B7VR+Nador&z=15&output=embed",
   "contact_show_map": "عرض على الخريطة",
+  "contact_hours_label": "ساعات العمل",
+  "contact_hours": "من الإثنين إلى السبت : 09:00 – 18:00",
+
 
   "footer_about": "مكتب خدمات أعمال معتمد في المغرب، يجمع بين الترجمة، المحاسبة، التسويق، التطوير والاستشارات.",
   "footer_services": "خدماتنا",

@@ -6,88 +6,101 @@ export default function Contact() {
   const { t } = useTranslation();
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-emerald-50 via-white to-green-50">
-      <div className="max-w-4xl mx-auto rounded-3xl shadow-2xl bg-white/80 p-10 flex flex-col items-center">
-        <h2 className="text-2xl md:text-3xl font-extrabold text-green-800 mb-8 text-center tracking-tight">
-          {t("contact_title")}
-        </h2>
-        <div className="w-full flex flex-col gap-8 mb-8">
-          {/* رقم الهاتف */}
-          <div className="flex items-center gap-4 bg-white/80 border border-green-100 rounded-2xl shadow p-5 hover:shadow-lg transition">
-            <FiPhone className="text-green-700 text-3xl" />
-            <div className="text-right">
-              <div className="font-semibold text-lg text-green-800">{t("contact_phone_label")}</div>
-              <div dir="ltr" className="text-xl text-gray-700 select-all tracking-widest">{t("contact_phone")}</div>
+    <section
+      id="contact"
+      className="py-24 bg-gradient-to-b from-white via-emerald-50 to-white"
+    >
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 flex flex-col items-center gap-10">
+          {/* Section Title */}
+          <h2 className="text-3xl md:text-4xl font-extrabold text-green-900 text-center mb-2 tracking-tight">
+            {t("contact_title")}
+          </h2>
+
+          {/* Contact Info Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            <div className="flex flex-col items-center gap-2 border rounded-xl shadow-sm p-6 bg-gradient-to-br from-emerald-50 to-white">
+              <FiPhone className="text-emerald-600 text-3xl mb-1" />
+              <div className="text-base font-semibold text-gray-700">{t("contact_phone_label")}</div>
+              <div dir="ltr" className="text-lg font-mono text-gray-800 select-all tracking-widest">{t("contact_phone")}</div>
             </div>
-          </div>
-          {/* البريد الإلكتروني */}
-          <div className="flex items-center gap-4 bg-white/80 border border-green-100 rounded-2xl shadow p-5 hover:shadow-lg transition">
-            <FiMail className="text-green-700 text-3xl" />
-            <div className="text-right">
-              <div className="font-semibold text-lg text-green-800">{t("contact_email_label")}</div>
-              <div className="text-xl">
-                <a href={`mailto:${t("contact_email")}`} className="text-blue-700 hover:underline select-all">
-                  {t("contact_email")}
-                </a>
+            <div className="flex flex-col items-center gap-2 border rounded-xl shadow-sm p-6 bg-gradient-to-br from-emerald-50 to-white">
+              <FiMail className="text-emerald-600 text-3xl mb-1" />
+              <div className="text-base font-semibold text-gray-700">{t("contact_email_label")}</div>
+              <a
+                href={`mailto:${t("contact_email")}`}
+                className="text-lg text-blue-700 hover:underline select-all"
+              >
+                {t("contact_email")}
+              </a>
+            </div>
+            <div className="flex flex-col items-center gap-2 border rounded-xl shadow-sm p-6 bg-gradient-to-br from-emerald-50 to-white">
+              <svg className="text-emerald-600 mb-1" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="currentColor"/>
+                <path d="M12 6v6l4 2" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <div className="text-base font-semibold text-gray-700">{t("contact_hours_label") || "Working Hours"}</div>
+              <div className="text-gray-800 text-sm text-center leading-relaxed">
+                {t("contact_hours") || "Mon–Fri: 09:00–18:00"}
               </div>
             </div>
           </div>
-        </div>
-        {/* المواقع الجغرافية */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-          {/* الموقع الأول */}
-          <div className="flex flex-col items-center">
-            <div className="flex items-center gap-2 mb-2 text-green-800 font-bold text-lg">
-              <FiMapPin />
-              {t("contact_main_office")}
-            </div>
-            <div className="mb-2 text-gray-700 font-medium text-center">
-              {t("contact_main_address")}<br />
+          {/* Address/Maps */}
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 mt-12">
+            {/* Main Office */}
+            <div className="flex flex-col bg-white rounded-2xl border shadow-sm p-5">
+              <div className="flex items-center gap-2 mb-2 text-green-900 font-bold text-lg">
+                <FiMapPin />
+                {t("contact_main_office")}
+              </div>
               <a
                 href={t("contact_main_maps_link")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-700 hover:underline"
+                className="text-blue-700 hover:underline text-xs"
               >
                 {t("contact_show_map")}
               </a>
+              <div className="rounded-xl overflow-hidden border mt-4">
+                <iframe
+                  title={t("contact_main_office")}
+                  src={t("contact_main_maps_iframe")}
+                  width="100%"
+                  height="160"
+                  allowFullScreen
+                  loading="lazy"
+                  className="w-full"
+                  style={{ border: "none" }}
+                ></iframe>
+              </div>
             </div>
-            <iframe
-              title={t("contact_main_office")}
-              src={t("contact_main_maps_iframe")}
-              width="100%"
-              height="210"
-              allowFullScreen
-              loading="lazy"
-              className="rounded-xl border shadow"
-            ></iframe>
-          </div>
-          {/* الموقع الثاني */}
-          <div className="flex flex-col items-center">
-            <div className="flex items-center gap-2 mb-2 text-green-800 font-bold text-lg">
-              <FiMapPin />
-              {t("contact_branch_office")}
-            </div>
-            <div className="mb-2 text-gray-700 font-medium text-center">
-              {t("contact_branch_address")}<br />
+            {/* Branch Office */}
+            <div className="flex flex-col bg-white rounded-2xl border shadow-sm p-5">
+              <div className="flex items-center gap-2 mb-2 text-green-900 font-bold text-lg">
+                <FiMapPin />
+                {t("contact_branch_office")}
+              </div>
               <a
                 href={t("contact_branch_maps_link")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-700 hover:underline"
+                className="text-blue-700 hover:underline text-xs"
               >
                 {t("contact_show_map")}
               </a>
+              <div className="rounded-xl overflow-hidden border mt-4">
+                <iframe
+                  title={t("contact_branch_office")}
+                  src={t("contact_branch_maps_iframe")}
+                  width="100%"
+                  height="160"
+                  allowFullScreen
+                  loading="lazy"
+                  className="w-full"
+                  style={{ border: "none" }}
+                ></iframe>
+              </div>
             </div>
-            <iframe
-              title={t("contact_branch_office")}
-              src={t("contact_branch_maps_iframe")}
-              width="100%"
-              height="210"
-              allowFullScreen
-              loading="lazy"
-              className="rounded-xl border shadow"
-            ></iframe>
           </div>
         </div>
       </div>

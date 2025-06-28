@@ -26,7 +26,7 @@ export default function About() {
   const stats = [
     { value: "30+", label: t("about_stat1") },
     { value: "12", label: t("about_stat2") },
-    { value: "5", label: t("about_stat3") },
+    { value: "5+", label: t("about_stat3") },
   ];
 
   return (
