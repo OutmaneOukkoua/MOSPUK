@@ -68,7 +68,7 @@ export default function Footer() {
       </div>
       {/* شريط الحقوق السفلي */}
       <div className="mt-12 pt-6 border-t border-gray-800 text-center text-xs text-gray-500 tracking-wide">
-        &copy; {new Date().getFullYear()} MOSPUK. {t("footer_copyright")}
+        {t("footer_copyright")} &copy; MOSPUK 2025.
       </div>
     </footer>
   );

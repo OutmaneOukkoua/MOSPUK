@@ -1,45 +1,49 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link, useParams } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const params = useParams();
 
-  // استعمل المفاتيح بدل النصوص المباشرة
+  // خذ اللغة من URL إن وجدت، وإلا من i18n
+  const lang = params.lang || i18n.language || "ar";
+
   const navLinks = [
-    { label: t("home"), href: "#hero" },
-    { label: t("about"), href: "#about" },
-    { label: t("services"), href: "#services" },
-    { label: t("joinus"), href: "#joinus" },
-    { label: t("contact"), href: "#contact" },
+    { label: t("home"), to: `/${lang}/hero` },
+    { label: t("about"), to: `/${lang}/about` },
+    { label: t("services"), to: `/${lang}/services` },
+    { label: t("joinus"), to: `/${lang}/joinus` },
+    { label: t("contact"), to: `/${lang}/contact` },
   ];
 
   return (
     <header className="w-full sticky top-0 z-50 bg-white/60 backdrop-blur-xl shadow-lg border-b border-green-200">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-4 md:px-12">
-        {/* Brand (with gradient text and slight shadow) */}
-        <a
-          href="#hero"
+        {/* Brand */}
+        <Link
+          to={`/${lang}/hero`}
           className="text-3xl md:text-4xl font-black tracking-tight bg-gradient-to-r from-green-700 via-green-500 to-emerald-400 bg-clip-text text-transparent drop-shadow-sm select-none cursor-pointer"
         >
           {t("brand")}
-        </a>
-        
+        </Link>
+
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-7 text-base font-bold items-center">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
+            <Link
+              key={link.to}
+              to={link.to}
               className="px-3 py-1 rounded-xl transition bg-white/0 hover:bg-green-50 hover:text-green-700 hover:shadow-lg focus:outline-none focus:bg-green-100 duration-150"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        {/* Language Switcher & Hamburger for Mobile */}
+        {/* Language Switcher & Hamburger */}
         <div className="flex items-center gap-2 md:gap-4">
           <LanguageSwitcher />
           <button
@@ -58,18 +62,18 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Animated Mobile Drawer */}
+      {/* Mobile Drawer */}
       {menuOpen && (
         <nav className="md:hidden fixed right-3 left-3 top-16 bg-white/95 border border-green-100 rounded-2xl shadow-2xl p-6 flex flex-col gap-5 z-50 animate-fade-in">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
+            <Link
+              key={link.to}
+              to={link.to}
               className="text-lg font-extrabold py-2 rounded-xl hover:bg-green-50 hover:text-green-700 transition"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       )}
