@@ -39,7 +39,7 @@ export default function Hero() {
 
         {/* Call to Action Button */}
         <a
-          href="#joinus"
+          href="joinus"
           className={
             "inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-l from-green-700 to-emerald-400 text-white font-bold text-lg shadow-lg hover:scale-105 hover:from-green-800 hover:to-emerald-500 focus:ring-2 focus:ring-green-700 focus:outline-none transition-all duration-200" +
             (isArabic ? " flex-row-reverse" : "")

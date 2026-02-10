@@ -22,12 +22,12 @@ export default function Footer() {
         <div>
           <div className="font-bold text-emerald-300 mb-3">{t("footer_services")}</div>
           <ul className="space-y-2 text-sm">
-            <li><a href="#services" className="hover:text-emerald-300 transition">{t("footer_service1")}</a></li>
-            <li><a href="#services" className="hover:text-emerald-300 transition">{t("footer_service2")}</a></li>
-            <li><a href="#services" className="hover:text-emerald-300 transition">{t("footer_service3")}</a></li>
-            <li><a href="#services" className="hover:text-emerald-300 transition">{t("footer_service4")}</a></li>
-            <li><a href="#services" className="hover:text-emerald-300 transition">{t("footer_service5")}</a></li>
-            <li><a href="#services" className="hover:text-emerald-300 transition">{t("footer_service6")}</a></li>
+            <li><a href="services" className="hover:text-emerald-300 transition">{t("footer_service1")}</a></li>
+            <li><a href="services" className="hover:text-emerald-300 transition">{t("footer_service2")}</a></li>
+            <li><a href="services" className="hover:text-emerald-300 transition">{t("footer_service3")}</a></li>
+            <li><a href="services" className="hover:text-emerald-300 transition">{t("footer_service4")}</a></li>
+            <li><a href="services" className="hover:text-emerald-300 transition">{t("footer_service5")}</a></li>
+            <li><a href="services" className="hover:text-emerald-300 transition">{t("footer_service6")}</a></li>
           </ul>
         </div>
 
@@ -35,9 +35,9 @@ export default function Footer() {
         <div>
           <div className="font-bold text-emerald-300 mb-3">{t("footer_quicklinks")}</div>
           <ul className="space-y-2 text-sm">
-            <li><a href="#about" className="hover:text-emerald-300 transition">{t("footer_link_about")}</a></li>
-            <li><a href="#joinus" className="hover:text-emerald-300 transition">{t("footer_link_joinus")}</a></li>
-            <li><a href="#contact" className="hover:text-emerald-300 transition">{t("footer_link_contact")}</a></li>
+            <li><a href="about" className="hover:text-emerald-300 transition">{t("footer_link_about")}</a></li>
+            <li><a href="joinus" className="hover:text-emerald-300 transition">{t("footer_link_joinus")}</a></li>
+            <li><a href="contact" className="hover:text-emerald-300 transition">{t("footer_link_contact")}</a></li>
           </ul>
         </div>
 
